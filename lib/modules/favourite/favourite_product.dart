@@ -59,7 +59,7 @@ Widget Favourite() => BlocProvider(
                           GridView.count(
                             physics: NeverScrollableScrollPhysics(),
                             shrinkWrap: true,
-                            childAspectRatio: 1 / 2,
+                            childAspectRatio: 1 / 2.1,
                             children: List.generate(
                               box.values.length,
                                   (index) {

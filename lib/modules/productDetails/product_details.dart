@@ -161,7 +161,7 @@ class ProductDetails extends StatelessWidget {
                                                 color: (color ?? ""),
                                                 size: (size ?? ""),
                                                 details: (details ?? ""),
-                                                id: (id ?? ""));
+                                                id: (id ?? ""),context: context);
                                             HomeLayoutCubit.get(context).changeColor(id, favBox);
                                           })
                                     ],

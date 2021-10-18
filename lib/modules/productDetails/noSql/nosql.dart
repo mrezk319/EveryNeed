@@ -26,10 +26,10 @@ class ProdcutModel {
       required this.pic,
       required this.disc,
       required this.price,
-      details,
-      size,
-      color,
-      id});
+        required this.details,
+        required this.size,
+        required this.color,
+        required this.id});
 
   ProdcutModel.fromJson(Map<String, dynamic> json) {
     this.name = json['name'];

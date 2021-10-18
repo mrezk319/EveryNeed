@@ -82,4 +82,6 @@ Map<String,String> en ={
   "Trans":"Delivery type",
   "Rezk-Store":"Rezk-Store",
   "Favourite is Empty":"Favourite is Empty",
+  "Removed from favourite successfully":"Removed from favourite successfully",
+  "Added to favourite successfully":"Added to favourite successfully",
 };

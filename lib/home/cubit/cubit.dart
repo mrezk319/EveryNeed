@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:io';
 import 'dart:ui';
 
@@ -323,10 +325,12 @@ class HomeLayoutCubit extends Cubit<HomeLayoutStates> {
   required int price,
   required String color,
   required String size,
+    context
   }) async {
     var favBox = Hive.box<nosql.ProdcutModel>('fov');
     if (favBox.containsKey(id)) {
       favBox.delete(id).then((value) {
+        Toast(text: "Removed from favourite successfully".tr,color: Colors.green,context: context);
         emit(removedFromFavSuccess());
       }).catchError((e) {
         print(e.toString());
@@ -336,6 +340,7 @@ class HomeLayoutCubit extends Cubit<HomeLayoutStates> {
       favBox.put(
           id,nosql.ProdcutModel(name: name,disc: disc,pic: pic,price: price,color: color,size: size,details: details,id: id)
       );
+      Toast(text: "Added to favourite successfully".tr,color: Colors.green,context: context);
       emit(addFavState());
     }
 

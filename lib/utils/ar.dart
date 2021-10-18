@@ -84,4 +84,6 @@ Map<String,String> ar ={
   "Rezk-Store":"متجر الرزق",
   "Favourite is Empty":"لا يوجد منتجات في مفضلتك",
   "Products":"المنتجات",
+  "Removed from favourite successfully":"تم الحذف بنجاح",
+  "Added to favourite successfully":"تمت الاضافه الي المفضله بنجاح",
 };
