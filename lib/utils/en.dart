@@ -84,4 +84,7 @@ Map<String,String> en ={
   "Favourite is Empty":"Favourite is Empty",
   "Removed from favourite successfully":"Removed from favourite successfully",
   "Added to favourite successfully":"Added to favourite successfully",
+  "For Admin":"For Admin",
+  "Description":"Description",
+  "Admin Bannel":"Admin Bannel",
 };

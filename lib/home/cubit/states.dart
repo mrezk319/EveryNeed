@@ -11,6 +11,10 @@ class getProductsSuccessState extends HomeLayoutStates{}
 class getProductsErrorState extends HomeLayoutStates{}
 class getProductsLoadingState extends HomeLayoutStates{}
 
+class getCategoruProductModelSuccessState extends HomeLayoutStates{}
+class getCategoruProductModelErrorState extends HomeLayoutStates{}
+class getCategoruProductModelLoadingState extends HomeLayoutStates{}
+
 class getCartsSuccessState extends HomeLayoutStates{}
 class getCartsErrorState extends HomeLayoutStates{}
 class getCartsLoadingState extends HomeLayoutStates{}
@@ -44,4 +48,6 @@ class removedFromFavError extends HomeLayoutStates{}
 class addFavState extends HomeLayoutStates{}
 
 class deletedSuccessfullyState extends HomeLayoutStates{}
+
+class getAllState extends HomeLayoutStates{}
 

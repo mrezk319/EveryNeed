@@ -3,6 +3,7 @@ import 'package:e_commerce/home/cubit/states.dart';
 import 'package:e_commerce/models/category_model.dart';
 import 'package:e_commerce/models/product_model.dart';
 import 'package:e_commerce/modules/allBestSell/all_best_sell.dart';
+import 'package:e_commerce/modules/categoryProducts/category_product.dart';
 import 'package:e_commerce/modules/productDetails/product_details.dart';
 import 'package:e_commerce/shared/components/conistance.dart';
 import 'package:flutter/material.dart';
@@ -128,7 +129,7 @@ Widget categoryItem(CategoryModel model) => InkWell(
     ),
   ),
   onTap: (){
-    Get.to(AllBestSell());
+    Get.to(() => CategotyProduct(model.id??""));
   },
 );
 

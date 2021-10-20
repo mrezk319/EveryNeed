@@ -83,6 +83,117 @@ class HomeLayoutCubit extends Cubit<HomeLayoutStates> {
     });
   }
 
+  List<ProdcutModel>? categoruProductModel = [];
+  void getCategoryProductModel(String id) {
+    emit(getCategoruProductModelLoadingState());
+    categoruProductModel = [];
+    emit(getCategoruProductModelLoadingState());
+    FirebaseFirestore.instance.collection('categories').doc(id).collection('products').get().then((value) {
+     value.docs.forEach((element) {
+       categoruProductModel!.add(ProdcutModel.fromJson(element.data()));
+     });
+      // if (categoruProductModel!.length == value.docs.length)
+        emit(getCategoruProductModelSuccessState());
+    }).catchError((e) {
+      print(e);
+      emit(getCategoruProductModelErrorState());
+    });
+  }
+
+
+  List<ProdcutModel>? categoruProductMenModel = [];
+   getCategoryProductMenModel(String id) {
+    emit(getCategoruProductModelLoadingState());
+    categoruProductMenModel = [];
+    emit(getCategoruProductModelLoadingState());
+    FirebaseFirestore.instance.collection('categories').doc(id).collection('products').get().then((value) {
+      value.docs.forEach((element) {
+        categoruProductMenModel!.add(ProdcutModel.fromJson(element.data()));
+      });
+      emit(getCategoruProductModelSuccessState());
+    }).catchError((e) {
+      print(e);
+      emit(getCategoruProductModelErrorState());
+    });
+  }
+
+  List<ProdcutModel>? categoruProductGamingModel = [];
+   getCategoryProductGamingModel(String id) {
+    emit(getCategoruProductModelLoadingState());
+    categoruProductGamingModel = [];
+    emit(getCategoruProductModelLoadingState());
+    FirebaseFirestore.instance.collection('categories').doc(id).collection('products').get().then((value) {
+      value.docs.forEach((element) {
+        categoruProductGamingModel!.add(ProdcutModel.fromJson(element.data()));
+      });
+      emit(getCategoruProductModelSuccessState());
+    }).catchError((e) {
+      print(e);
+      emit(getCategoruProductModelErrorState());
+    });
+  }
+
+  List<ProdcutModel>? categoruProductWomenModel = [];
+   getCategoryProductWomenModel(String id) {
+    emit(getCategoruProductModelLoadingState());
+    categoruProductWomenModel = [];
+    emit(getCategoruProductModelLoadingState());
+    FirebaseFirestore.instance.collection('categories').doc(id).collection('products').get().then((value) {
+      value.docs.forEach((element) {
+        categoruProductWomenModel!.add(ProdcutModel.fromJson(element.data()));
+      });
+      // if (categoruProductModel!.length == value.docs.length)
+      emit(getCategoruProductModelSuccessState());
+    }).catchError((e) {
+      print(e);
+      emit(getCategoruProductModelErrorState());
+    });
+  }
+
+
+  List<ProdcutModel>? categoruProductDeviceModel = [];
+   getCategoryProductDeviceModel(String id) {
+    emit(getCategoruProductModelLoadingState());
+    categoruProductDeviceModel = [];
+    emit(getCategoruProductModelLoadingState());
+    FirebaseFirestore.instance.collection('categories').doc(id).collection('products').get().then((value) {
+      value.docs.forEach((element) {
+        categoruProductDeviceModel!.add(ProdcutModel.fromJson(element.data()));
+      });
+      // if (categoruProductModel!.length == value.docs.length)
+      emit(getCategoruProductModelSuccessState());
+    }).catchError((e) {
+      print(e);
+      emit(getCategoruProductModelErrorState());
+    });
+  }
+
+
+  List<ProdcutModel>? categoruProductGadgetModel = [];
+   getCategoryProductGadgetModel(String id) {
+    emit(getCategoruProductModelLoadingState());
+    categoruProductGadgetModel = [];
+    emit(getCategoruProductModelLoadingState());
+    FirebaseFirestore.instance.collection('categories').doc(id).collection('products').get().then((value) {
+      value.docs.forEach((element) {
+        categoruProductGadgetModel!.add(ProdcutModel.fromJson(element.data()));
+      });
+      // if (categoruProductModel!.length == value.docs.length)
+      emit(getCategoruProductModelSuccessState());
+    }).catchError((e) {
+      print(e);
+      emit(getCategoruProductModelErrorState());
+    });
+  }
+
+getAll({menId, WomenId, deviceId, ganmingId, gadgetId}){
+  getCategoryProductGadgetModel(gadgetId);
+  getCategoryProductDeviceModel(deviceId);
+  getCategoryProductWomenModel(WomenId);
+  getCategoryProductGamingModel(ganmingId);
+  getCategoryProductMenModel(menId);
+  emit(getAllState());
+}
   List<CartModel>? cartModel = [];
 
   getAllCarts() {
@@ -227,6 +338,19 @@ class HomeLayoutCubit extends Cubit<HomeLayoutStates> {
       emit(getProfileImagePickerErrorState());
     }
   }
+  File? image;
+
+  Future getImage() async {
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+
+    if (pickedFile != null) {
+      image = File(pickedFile.path);
+      emit(getProfileImagePickerSuccessState());
+    } else {
+      print('No image selected.');
+      emit(getProfileImagePickerErrorState());
+    }
+  }
 
    updateData(
       {required TextEditingController emailController,
@@ -356,4 +480,5 @@ class HomeLayoutCubit extends Cubit<HomeLayoutStates> {
       emit(changed());
     }
   }
+
 }

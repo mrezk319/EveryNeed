@@ -86,4 +86,7 @@ Map<String,String> ar ={
   "Products":"المنتجات",
   "Removed from favourite successfully":"تم الحذف بنجاح",
   "Added to favourite successfully":"تمت الاضافه الي المفضله بنجاح",
+  "For Admin":"خاص بالأدمن",
+  "Description":"الوصف",
+  "Admin Bannel":"لوحة الادارة",
 };

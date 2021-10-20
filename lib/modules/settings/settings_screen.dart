@@ -1,8 +1,8 @@
 import 'package:e_commerce/home/cubit/cubit.dart';
 import 'package:e_commerce/home/cubit/states.dart';
+import 'package:e_commerce/modules/admin/admin_screen.dart';
 import 'package:e_commerce/modules/editProfile/edit_profile.dart';
 import 'package:e_commerce/modules/login/log_in_screen.dart';
-import 'package:e_commerce/modules/notification/notifications.dart';
 import 'package:e_commerce/modules/order/order_history.dart';
 import 'package:e_commerce/modules/shipping/shipping_address.dart';
 import 'package:e_commerce/shared/components/conistance.dart';
@@ -19,7 +19,7 @@ import 'package:hexcolor/hexcolor.dart';
 class menu {
   String? image, title;
 
-  menu({required this.image, required this.title});
+  menu({ this.image, required this.title});
 }
 
 List<menu> items = [
@@ -27,13 +27,11 @@ List<menu> items = [
   menu(image: "loc", title: "Shipping Address"),
   menu(image: "order", title: "Order History"),
   menu(image: "noti", title: "Notifications"),
-  menu(image: "noti", title: "Notifications"),
 ];
 List functions = [
   EditProfile(),
   ShippingAddress(),
   OrderHistory(),
-  Notifications(),
 ];
 class SettingsScreen extends StatelessWidget {
   @override
@@ -98,84 +96,117 @@ class SettingsScreen extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
-                Expanded(
-                    child: ListView.separated(
-                        itemBuilder: (context, index) {
-                          if (index == items.length-1){
-                            return Column(
-                              children: [
-                                InkWell(
-                                  child: Row(
-                                    children: [
-                                      SizedBox(
-                                        width: 15,
-                                      ),
-                                      Text(
-                                        "Change Language".tr,
-                                        style: GoogleFonts.merriweatherSans(
-                                            fontSize: 22),
-                                      ),
-                                    ],
+                ListView.separated(
+                  shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemBuilder: (context, index) {
+                      if (index == items.length-1){
+                        return Column(
+                          children: [
+                            InkWell(
+                              child: Row(
+                                children: [
+                                  SizedBox(
+                                    width: 6,
                                   ),
-                                  onTap: (){
-                                    showAnimatedDialog(context: context, builder: (context)=>ClassicGeneralDialogWidget(
-                                      titleText: '',
-                                      contentText: 'Choose language'.tr,
-                                      onPositiveClick: () {
-                                        Get.updateLocale(Locale('ar'));
-                                        CacheHelper.saveData(key: "isArabic", value: true);
-                                        Navigator.of(context).pop();
-                                      },
-                                      onNegativeClick: () {
-                                        Get.updateLocale(Locale('en'));
-                                        CacheHelper.saveData(key: "isArabic", value: false);
-                                        Navigator.of(context).pop();
-                                      },
-                                      positiveText: "Arabic",
-                                      negativeText: "English",
-                                      negativeTextStyle: GoogleFonts.merriweatherSans(fontWeight: FontWeight.w600,color:Colors.black),
-                                      positiveTextStyle: GoogleFonts.merriweatherSans(fontWeight: FontWeight.w600,color:Colors.black),
-                                    ), animationType: DialogTransitionType.slideFromBottomFade,
-                                      curve: Curves.fastOutSlowIn,
-                                      duration: Duration(seconds: 1),
-                                    );
-                                  },
-                                ),
-                                SizedBox(
-                                  height: 35,
-                                ),
-                                InkWell(
-                                  child: Row(
-                                    children: [
-                                      Image.asset(
-                                        'assets/images/logout.png',
-                                        fit: BoxFit.cover,
-                                      ),
-                                      SizedBox(
-                                        width: 15,
-                                      ),
-                                      Text(
-                                        "Log Out".tr,
-                                        style: GoogleFonts.merriweatherSans(
-                                            fontSize: 22),
-                                      ),
-                                    ],
+                                  Icon(Icons.language,size: 25,color: HexColor(color),),
+                                  SizedBox(
+                                    width: 15,
                                   ),
-                                  onTap: (){
-                                    FirebaseAuth.instance.signOut();
-                                    CacheHelper.saveData(key: "isLogged", value: false);
-                                    Get.to(LogIn());
+                                  Text(
+                                    "Change Language".tr,
+                                    style: GoogleFonts.merriweatherSans(
+                                        fontSize: 22),
+                                  ),
+                                  Spacer(),
+                                  Icon(Icons.arrow_forward_ios),
+                                ],
+                              ),
+                              onTap: (){
+                                showAnimatedDialog(context: context, builder: (context)=>ClassicGeneralDialogWidget(
+                                  titleText: '',
+                                  contentText: 'Choose language'.tr,
+                                  onPositiveClick: () {
+                                    Get.updateLocale(Locale('ar'));
+                                    CacheHelper.saveData(key: "isArabic", value: true);
+                                    Navigator.of(context).pop();
                                   },
-                                ),
-                              ],
-                            );
-                          }
-                          return InkWell(child: menuItem(items[index]),onTap: (){Get.to(functions[index]);},);
-                        },
-                        separatorBuilder: (context, index) => SizedBox(
+                                  onNegativeClick: () {
+                                    Get.updateLocale(Locale('en'));
+                                    CacheHelper.saveData(key: "isArabic", value: false);
+                                    Navigator.of(context).pop();
+                                  },
+                                  positiveText: "Arabic",
+                                  negativeText: "English",
+                                  negativeTextStyle: GoogleFonts.merriweatherSans(fontWeight: FontWeight.w600,color:Colors.black),
+                                  positiveTextStyle: GoogleFonts.merriweatherSans(fontWeight: FontWeight.w600,color:Colors.black),
+                                ), animationType: DialogTransitionType.slideFromBottomFade,
+                                  curve: Curves.fastOutSlowIn,
+                                  duration: Duration(seconds: 1),
+                                );
+                              },
+                            ),
+                            SizedBox(
+                              height: 25,
+                            ),
+                            InkWell(
+                              child: Row(
+                                children: [
+                                  SizedBox(
+                                    width: 6,
+                                  ),
+                                  Icon(Icons.person,size: 25,color: HexColor(color),),
+                                  SizedBox(
+                                    width: 15,
+                                  ),
+                                  Text(
+                                    "For Admin".tr,
+                                    style: GoogleFonts.merriweatherSans(fontSize: 22),
+                                  ),
+                                  Spacer(),
+                                  Icon(Icons.arrow_forward_ios),
+                                ],
+                              ),
+                              onTap: (){
+                                Get.to(AdminScreen());
+                              },
+                            ),
+                            SizedBox(
                               height: 35,
                             ),
-                        itemCount: items.length)),
+                            InkWell(
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    'assets/images/logout.png',
+                                    fit: BoxFit.cover,
+                                  ),
+                                  SizedBox(
+                                    width: 15,
+                                  ),
+                                  Text(
+                                    "Log Out".tr,
+                                    style: GoogleFonts.merriweatherSans(
+                                        fontSize: 22),
+                                  ),
+                                ],
+                              ),
+                              onTap: (){
+                                FirebaseAuth.instance.signOut();
+                                CacheHelper.saveData(key: "isLogged", value: false);
+                                Get.to(LogIn());
+                              },
+                            ),
+                          ],
+                        );
+                      }
+                      return InkWell(child: menuItem(items[index]),onTap: (){Get.to(functions[index]);},);
+                    },
+                    separatorBuilder: (context, index) => SizedBox(
+                          height: 25,
+                        ),
+                    itemCount: items.length),
+
               ],
             ),
           );
