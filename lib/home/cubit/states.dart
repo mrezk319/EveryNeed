@@ -51,5 +51,7 @@ class deletedSuccessfullyState extends HomeLayoutStates{}
 
 class getAllState extends HomeLayoutStates{}
 
+
 class getAdminState extends HomeLayoutStates{}
+class openBoxState extends HomeLayoutStates{}
 

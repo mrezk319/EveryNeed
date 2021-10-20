@@ -21,7 +21,6 @@ void main() async {
   await Firebase.initializeApp();
   Bloc.observer = MyBlocObserver();
 
-
   await Hive.initFlutter();
   Hive.registerAdapter(ProdcutModelAdapter());
   await Hive.openBox<ProdcutModel>('fov');
@@ -45,7 +44,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => HomeLayoutCubit())],
+      providers: [
+        BlocProvider(create: (context) => HomeLayoutCubit())
+      ],
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
         home: FlameSplashScreen(

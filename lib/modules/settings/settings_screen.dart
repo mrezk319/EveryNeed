@@ -197,6 +197,7 @@ class SettingsScreen extends StatelessWidget {
                               ),
                               onTap: (){
                                 FirebaseAuth.instance.signOut();
+                                CacheHelper.saveData(key: "uid", value: null);
                                 CacheHelper.saveData(key: "isLogged", value: false);
                                 Get.to(LogIn());
                               },

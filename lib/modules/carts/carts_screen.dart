@@ -122,8 +122,11 @@ class _CartsState extends State<Carts> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text((model.name ?? ""),
-                    style: GoogleFonts.merriweatherSans(fontSize: 16),),
+                  Container(
+                    width: 130,
+                    child: Text((model.name ?? ""),
+                      style: GoogleFonts.merriweatherSans(fontSize: 16),),
+                  ),
                   SizedBox(height: 15,),
                   Text("\$${(model.price ?? "")}",
                     style: GoogleFonts.merriweatherSans(

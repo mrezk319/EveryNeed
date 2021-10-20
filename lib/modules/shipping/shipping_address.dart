@@ -78,29 +78,33 @@ Widget orderItem(OrderModel orders) => Padding(
               elevation: 5,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
                     height: 10,
                   ),
-                  Container(
-                    width: 300,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("Address : ".tr),
-                        Text(
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text("Address : ".tr),
+                      Container(
+                        width: 190,
+                        child: Text(
                             "${orders.street1}, ${orders.street2}, ${orders.state}, ${orders.city}, ${orders.country}"),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                   SizedBox(
                     height: 20,
                   ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     SizedBox(
-                      width: 5,
+                      width: 10,
                     ),
                     Text(
                       "Trans".tr,
