@@ -25,6 +25,7 @@ class AdminScreen extends StatelessWidget {
       child: Scaffold(
           backgroundColor: Colors.white,
           appBar: AppBar(
+            backgroundColor: HexColor(color),
             title: Text('Admin Bannel'.tr),
             bottom: TabBar(
               tabs: [
@@ -678,7 +679,7 @@ Widget item({text, controller, TextInputType type = TextInputType
           ),
           controller: controller,
           validator: (val) {
-            if (val!.isEmpty) {
+            if (val!.isEmpty){
               return "This field can't be empty".tr;
             }
           },
@@ -734,7 +735,7 @@ Widget Floatt(
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(25.0),
+                      padding: const EdgeInsets.all(5.0),
                       child: CircleAvatar(
                         child: IconButton(
                           onPressed: () {
@@ -816,6 +817,12 @@ Widget Floatt(
                             'id': value.id,
                           });
                           Get.back();
+                          name.text = "";
+                          price.text = "";
+                          disc.text = "";
+                          details.text = "";
+                          Color.text = "";
+                          size.text = "";
                           HomeLayoutCubit.get(context).getAll
                             (
                               menId: "Cl5iScoUf7EOX18OqWzK",

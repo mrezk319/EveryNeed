@@ -34,7 +34,9 @@ class LogInCubit extends Cubit<LoginStates> {
       userModel = UserModel(email: value.user!.email,
           name: value.user!.displayName,
           pic: value.user!.photoURL,
-          uid: value.user!.uid);
+          uid: value.user!.uid,
+          isAdmin: value.user!.uid.contains("iYeCIPwzXIenCJWecg1ZehrkYd23")?true:false,
+      );
 
       FirebaseFirestore.instance.collection('users').doc(value.user!.uid).set(
           userModel!.toMap()).then((value) {
@@ -72,7 +74,8 @@ class LogInCubit extends Cubit<LoginStates> {
         userModel = UserModel(email: value.user!.email,
             name: value.user!.displayName,
             pic: value.user!.photoURL,
-            uid: value.user!.uid);
+            uid: value.user!.uid,
+        );
 
         FirebaseFirestore.instance.collection('users').doc(value.user!.uid).set(
             userModel!.toMap()).then((value) {

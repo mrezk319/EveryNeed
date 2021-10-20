@@ -100,7 +100,14 @@ class HomeLayoutCubit extends Cubit<HomeLayoutStates> {
     });
   }
 
-
+ bool isAdmin =false;
+getAdmin(){
+  FirebaseFirestore.instance.collection('users').doc(FirebaseAuth.instance.currentUser!.uid).get().then((value) {
+    if(value.data()!['isAdmin'] == true)
+      isAdmin = true;
+    emit(getAdminState());
+  });
+}
   List<ProdcutModel>? categoruProductMenModel = [];
    getCategoryProductMenModel(String id) {
     emit(getCategoruProductModelLoadingState());

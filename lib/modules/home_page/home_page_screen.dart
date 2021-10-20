@@ -17,7 +17,7 @@ import 'package:loading_animations/loading_animations.dart';
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider.value(value: BlocProvider.of<HomeLayoutCubit>(context)..getCategories()..getProducts()..getUserdata(),child: BlocConsumer<HomeLayoutCubit,HomeLayoutStates>(
+    return BlocProvider.value(value: BlocProvider.of<HomeLayoutCubit>(context)..getCategories()..getProducts()..getUserdata()..getAdmin(),child: BlocConsumer<HomeLayoutCubit,HomeLayoutStates>(
       listener: (context,state){},
       builder: (context,state){
         return Scaffold(

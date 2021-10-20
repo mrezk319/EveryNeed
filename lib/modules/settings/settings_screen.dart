@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_commerce/home/cubit/cubit.dart';
 import 'package:e_commerce/home/cubit/states.dart';
 import 'package:e_commerce/modules/admin/admin_screen.dart';
@@ -149,6 +150,7 @@ class SettingsScreen extends StatelessWidget {
                             SizedBox(
                               height: 25,
                             ),
+                            if(HomeLayoutCubit.get(context).isAdmin)
                             InkWell(
                               child: Row(
                                 children: [
@@ -171,9 +173,11 @@ class SettingsScreen extends StatelessWidget {
                                 Get.to(AdminScreen());
                               },
                             ),
+                            if(HomeLayoutCubit.get(context).isAdmin)
                             SizedBox(
                               height: 35,
                             ),
+
                             InkWell(
                               child: Row(
                                 children: [

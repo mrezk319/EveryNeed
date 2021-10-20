@@ -70,7 +70,7 @@ Widget orderHistoryItem(OrderModel model,context) {
               children: [
                 Text("Address : ".tr),
                 Container(
-                    width: 300,
+                    width: 250,
                     child: Text("${model.street1}, ${model.street2}, ${model.state}, ${model.city}, ${model.country}"))
               ],
             ),
