@@ -24,7 +24,6 @@ This project is a starting point for a Flutter application.
 <img src="https://i.imgur.com/JVrbwKT.jpg">
 <img src="https://i.imgur.com/fHfHFoe.jpg">
 <img src="https://i.imgur.com/4kmYY3o.jpg">
-<img src="https://i.imgur.com/JVrbwKT.jpg">
 <img src="https://i.imgur.com/C6IId26.jpg">
 <img src="https://i.imgur.com/F6I4hAN.jpg">
 <img src="https://i.imgur.com/CDPtbGm.jpg">
