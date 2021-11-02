@@ -57,6 +57,11 @@ dependencies:
   modal_bottom_sheet: ^2.0.0
   path_provider:
   flip_card:
+  flutter_launcher_icons:
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/logo.png"
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
